@@ -1,5 +1,9 @@
 name: github action CICD
 
+on: 
+  push:
+    branches: ["main"]
+
 jobs: 
   buid:
   runs-on: ubuntu-latest
