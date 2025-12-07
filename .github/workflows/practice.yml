@@ -6,7 +6,7 @@ on:
 
 jobs: 
   buid:
-  runs-on: ubuntu-latest
-  steps:
-    - name: echo
-      run: echo "test"
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        run: echo "test"
