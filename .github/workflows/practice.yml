@@ -1,0 +1,7 @@
+name: github action CICD
+
+jobs: 
+  buid:
+  runs-on: ubuntu-latest
+  steps:
+    echo "test"
