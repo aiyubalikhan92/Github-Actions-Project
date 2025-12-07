@@ -12,3 +12,10 @@ jobs:
         run: echo "testing"
       - name: checkout
         uses: actions/checkout@v6  
+      - name: installing java 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'corretto' # See 'Supported distributions' for available options
+          java-version: '17'
+      - run: java HelloWorldApp.java  
+      - run: java -version
