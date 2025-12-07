@@ -8,4 +8,5 @@ jobs:
   buid:
   runs-on: ubuntu-latest
   steps:
-    echo "test"
+    - name: echo
+      run: echo "test"
