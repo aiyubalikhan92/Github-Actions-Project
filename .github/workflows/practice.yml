@@ -1,12 +1,8 @@
-name: github action CICD
+name: github actions cicd pipelines
 
-on: 
-  push:
-    branches: ["main"]
-
-jobs: 
-  buid:
+jobs:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: echo
-        run: echo "test"
+        runs: echo "testing"
