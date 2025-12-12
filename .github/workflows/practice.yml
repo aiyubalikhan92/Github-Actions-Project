@@ -14,5 +14,7 @@ jobs:
           java-version: '21'
       - name: checking java version
         run: java -version    
+      - name: build with maven
+        run: mvn -B package --file pom.xml  
          
 
