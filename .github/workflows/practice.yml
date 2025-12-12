@@ -1,6 +1,6 @@
-name: github actions cicd pipelines
+name: github actions cicd
 
-on:
+on: 
   push:
     branches: ["main"]
 
@@ -8,13 +8,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: echo
-        run: echo "testing"
-      - name: checkout
-        uses: actions/checkout@v6  
-      - name: installing java 17
-        uses: actions/setup-java@v5
+      - uses: actions/setup-java@5
         with:
           distribution: 'corretto' # See 'Supported distributions' for available options
-          java-version: '17' 
-      - run: java -version
+          java-version: '21'
+      - name: checking java version
+        run: java -version    
+         
+
