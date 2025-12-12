@@ -8,6 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout code
+        uses: actions/checkout@v5
+      - name: java setup
       - uses: actions/setup-java@v5
         with:
           distribution: 'corretto' # See 'Supported distributions' for available options
