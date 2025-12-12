@@ -1,4 +1,4 @@
-name: github actions cicd
+name: github actions cicd -ok
 
 on: 
   push:
