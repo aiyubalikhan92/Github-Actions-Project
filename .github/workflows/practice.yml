@@ -18,6 +18,26 @@ jobs:
       - name: checking java version
         run: java -version    
       - name: build with maven
-        run: mvn -B package --file pom.xml  
+        run: mvn compile  
+
+  trivy:
+    runs-on: ubuntu-latest
+    steps:
+        - name: checkout
+          uses: actions/checkout@v4
+        - name: tryvi install 
+          run: |
+            sudo apt-get install wget gnupg
+            wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null
+            echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb generic main" | sudo tee -a /etc/apt/sources.list.d/trivy.list
+            sudo apt-get update -y
+            sudo apt-get install -y trivy
+        - name: trivy scan
+          run: trivy fs --format table -o scanreport.json .
+        - name: install gitleaks
+          uses: gitleaks/gitleaks-action@v2   
+        - name: gitleaks detacks
+          run: gitleaks detect source . -r gitleaks-report.json -f json
+                
          
 
